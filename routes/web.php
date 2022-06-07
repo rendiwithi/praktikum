@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/kalab', 'App\Http\Controllers\praktikumCont@kalabAslab');
+Route::get('/aslab', 'App\Http\Controllers\praktikumCont@kalabAslab');
