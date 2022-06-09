@@ -18,4 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('/kalab', 'App\Http\Controllers\praktikumCont@kalabAslab');
-Route::get('/aslab', 'App\Http\Controllers\praktikumCont@kalabAslab');
+Route::get('/aslab', 'App\Http\Controllers\praktikumCont@aslab');
+Route::get('/dosbim', 'App\Http\Controllers\praktikumCont@dosbim');
