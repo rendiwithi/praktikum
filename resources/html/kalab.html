@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Halaman Aslab</title>
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg mb-4" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Penilaian Praktikan</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        </ul>
+        <div class="d-flex justify-content-end">
+          <a href="/login"><button type="submit" class="btn btn-danger m-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-door-open" viewBox="0 0 17 21">
+             <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1z"/>
+             <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117zM11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5zM4 1.934V15h6V1.077l-6 .857z"/>
+             </svg>Logout</button>
+          </a>
+       </div>
+      </div>
+    </div>
+  </nav>
+
+  <a class="btn btn-primary mx-2 my-2" href="/user/add">tambah</a>
+  <button class="btn btn-primary my-2">Laporan</button>
+  <table class="table table-striped table-hover table-bordered text-center">
+    <thead class="table-primary">
+      <tr>
+        <th scope="col">No</th>
+        <th scope="col">Nama</th>
+        <th scope="col">NBI</th>
+        <th scope="col">Kelas</th>
+        <th scope="col">Role</th>
+        <th scope="col">Aksi</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <?php $no = 1; ?>
+      @foreach ($data as $praktikan)
+      <?php if ($praktikan->kelas == null) {
+        $kelas = "-";
+      } else {
+        $kelas = $praktikan->kelas;
+      }; ?>
+      <tr>
+        <th>{{$no++}}</th>
+        <td>{{$praktikan->nama}}</td>
+        <td>{{$praktikan->nbi}}</td>
+        <td>{{$kelas}}</td>
+        <td>{{$praktikan->role}}</td>
+        <td>
+          <a class="btn btn-success" href="/edit/user/{{$praktikan->nbi}}">Tambah</a>
+          <button class="btn btn-warning">Edit</button>
+          <button class="btn btn-danger">Delete</button>
+          @endforeach
+        </td>
+    </tr>
+    </tbody>
+  </table>
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+</html>

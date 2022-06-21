@@ -3,34 +3,27 @@
     <div class="row">
         <div class="col s12">
             <div class="card-panel">
-                <h3 class="text-center my-5">Masukkan data user</h3>
-                <form class="card mx-auto p-2" style="width: 25rem;" method="get" action="/admin/masuk/add_kendaraan">
+                <h3 class="text-center my-5">Masukkan Data Mahasiswa</h3>
+                <form class="card mx-auto p-2" style="width: 35rem;" method="get" action="">
                     {{csrf_field()}}
-                    <div class="row g-3 mx-auto">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Nama user</label>
+                    <div class="row mb-3">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Nama</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="colFormLabel" placeholder="Nama Mahasiswa">
                         </div>
-                        <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
+                      </div>
+                    <div class="row mb-3">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">NBI</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="colFormLabel" placeholder="NBI Mahasiswa">
                         </div>
-                    </div>
-                    <div class="row g-3 mx-auto">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">nbi user(****)</label>
-                            <br>
+                      </div>
+                    <div class="row mb-3">
+                        <label for="colFormLabel" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="email" class="form-control" id="colFormLabel" placeholder="Password User">
                         </div>
-                        <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="row g-3 mx-auto">
-                        <div class="col-auto">
-                            <label for="inputPassword6" class="col-form-label">Password user</label>
-                        </div>
-                        <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
-                        </div>
-                    </div>
+                      </div>
                     <br>
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
                     <Select name="role" , id="role" class="form-select">
