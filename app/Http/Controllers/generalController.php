@@ -21,9 +21,33 @@ class generalController extends Controller
                 return redirect('/kalab');
             } else if ($data[0]->role == "dosbim") {
                 return redirect('/dosbim');
+            } else if ($data[0]->role == "praktikan") {
+                $nbi = (string)$data[0]->nbi;
+                return redirect('/praktikan/$nbi');
             } else {
                 return redirect('/');
             }
         }
     }
+    public function add_user(Request $request)
+    {
+        DB::table('user')->insert([
+            'nbi' => $request->nbi,
+            'nama' => $request->nama,
+            'password' => $request->password,
+            'id_role' => $request->role,
+            'id_kelas' => $request->kelas,
+            'id_dosbim' => $request->dosbim,
+        ]);
+        return redirect('/aslab');
+    }
+
+    public function addvalue(Request $request)
+    {
+        DB::select(DB::raw("INSERT INTO `detail_nilai` (`id_detail_nilai`, `nbi`, `id_daftar_tugas`, `keterangan`, `nilai`) VALUES (NULL, '$request->nbi', '1', NULL, '$request->nilai1');"));
+        DB::select(DB::raw("INSERT INTO `detail_nilai` (`id_detail_nilai`, `nbi`, `id_daftar_tugas`, `keterangan`, `nilai`) VALUES (NULL, '$request->nbi', '2', NULL, '$request->nilai2');"));
+        return redirect('/aslab');
+    }
+
+    // INSERT INTO `user` (`nbi`, `nama`, `password`, `id_role`, `id_kelas`, `id_dosbim`) VALUES ('999', 'test', 'test999', '4', '1', '321');
 }

@@ -21,19 +21,32 @@ class praktikumCont extends Controller
     public function adduser()
     {
         $role = DB::table('role')->get();
+        $dosbim = DB::select(DB::raw("SELECT * FROM user as u WHERE u.id_role=3;"));
         $kelas = DB::table('kelas')->get();
-        return view('add_user', ['role'=>$role, 'kelas'=>$kelas]);
+        return view('add_user', ['role' => $role, 'kelas' => $kelas, 'dosbim' => $dosbim]);
     }
     public function edituser($nbi)
     {
         $role = DB::table('role')->get();
         $kelas = DB::table('kelas')->get();
+        $dosbim = DB::select(DB::raw("SELECT * FROM user as u WHERE u.id_role=3;"));
         $data = DB::select(DB::raw("SELECT u.nbi, u.password, u.nama FROM user as u JOIN role as r on u.id_role = r.id_role WHERE u.nbi='$nbi';"));
-        return view('edit_user', ['role'=>$role, 'kelas'=>$kelas, 'data'=>$data]);
+        return view('edit_user', ['role' => $role, 'kelas' => $kelas, 'data' => $data, 'dosbim' => $dosbim]);
     }
     public function dosbim()
     {
         return view('dosbim');
+    }
+    public function addvalue($nbi)
+    {
+        $tugas = DB::table('daftar_tugas')->get();
+        return view('add_value', ["tugas"=>$tugas, "nbi"=>$nbi]);
+    }
+    // 
+    public function report($nbi)
+    {
+        $data = DB::select(DB::raw("SELECT dn.nilai, dt.name FROM detail_nilai as dn JOIN daftar_tugas as dt ON dt.id=dn.id_daftar_tugas where dn.nbi='$nbi';"));
+        return view('praktikan', ["data"=>$data]);
     }
     public function login()
     {

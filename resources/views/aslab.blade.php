@@ -58,9 +58,9 @@
         <td>{{$kelas}}</td>
         <td>{{$praktikan->role}}</td>
         <td>
-          <a class="btn btn-success" href="/edit/user/{{$praktikan->nbi}}">Tambah</a>
-          <button class="btn btn-warning">Edit</button>
-          <button class="btn btn-danger">Delete</button>
+          <a class="btn btn-info" href="/edit/value/{{$praktikan->nbi}}">tambah</a>
+          <a class="btn btn-success" href="/edit/user/{{$praktikan->nbi}}">edit</a>
+          <a class="btn btn-warning" href="/edit/user/{{$praktikan->nbi}}">hapus</a>
           @endforeach
     </tbody>
   </table>

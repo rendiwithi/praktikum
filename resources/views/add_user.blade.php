@@ -4,14 +4,14 @@
         <div class="col s12">
             <div class="card-panel">
                 <h3 class="text-center my-5">Masukkan data user</h3>
-                <form class="card mx-auto p-2" style="width: 25rem;" method="get" action="/admin/masuk/add_kendaraan">
+                <form class="card mx-auto p-2" style="width: 25rem;" method="get" action="/adduser">
                     {{csrf_field()}}
                     <div class="row g-3 mx-auto">
                         <div class="col-auto">
                             <label for="inputPassword6" class="col-form-label">Nama user</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
+                            <input type="text" name="nama" id="nama" class="form-control" required>
                         </div>
                     </div>
                     <div class="row g-3 mx-auto">
@@ -20,7 +20,7 @@
                             <br>
                         </div>
                         <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
+                            <input type="text" name="nbi" id="nbi" class="form-control" required>
                         </div>
                     </div>
                     <div class="row g-3 mx-auto">
@@ -28,12 +28,12 @@
                             <label for="inputPassword6" class="col-form-label">Password user</label>
                         </div>
                         <div class="col-auto">
-                            <input type="text" name="plat" id="plat" class="form-control" required>
+                            <input type="text" name="password" id="password" class="form-control" required>
                         </div>
                     </div>
                     <br>
                     <label for="exampleInputEmail1" class="form-label">Kelas</label>
-                    <Select name="role" , id="role" class="form-select">
+                    <Select name="kelas" , id="kelas" class="form-select">
                         @foreach ($kelas as $dk)
                         <option value="{{$dk->id}}">{{$dk->nama}}</option>
                         @endforeach
@@ -46,13 +46,14 @@
                         @endforeach
                     </Select>
                     <br>
-                    <button type="submit" class="btn btn-primary mt-2">Tambah</button>
-                    <!--<label style="color:black;font-size:100%" for="desc">Plat Kendaraan</label>
-                    <div class="input-field">
-                        <input type="text" name="plat" id="plat" required>
-                    </div>
+                    <label for="exampleInputEmail1" class="form-label">Dosbim</label>
+                    <Select name="dosbim" , id="dosbim" class="form-select">
+                        @foreach ($dosbim as $dos)
+                        <option value="{{$dos->nbi}}">{{$dos->nama}}</option>
+                        @endforeach
+                    </Select>
                     <br>
-                    <button class="btn waves-effect green">Add</button>-->
+                    <button type="submit" class="btn btn-primary mt-2">Tambah</button>
                 </form>
             </div>
         </div>

@@ -46,13 +46,13 @@
                         @endforeach
                     </Select>
                     <br>
+                    <label for="exampleInputEmail1" class="form-label">Role</label>
+                    <Select name="dosbim" , id="dosbim" class="form-select">
+                        @foreach ($dosbim as $dos)
+                        <option value="{{$dos->nbi}}">{{$dos->nama}}</option>
+                        @endforeach
+                    </Select>
                     <button type="submit" class="btn btn-primary mt-2">Add</button>
-                    <!--<label style="color:black;font-size:100%" for="desc">Plat Kendaraan</label>
-                    <div class="input-field">
-                        <input type="text" name="plat" id="plat" required>
-                    </div>
-                    <br>
-                    <button class="btn waves-effect green">Add</button>-->
                 </form>
             </div>
         </div>
